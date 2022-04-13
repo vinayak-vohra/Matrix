@@ -224,6 +224,9 @@ Matrix Matrix::operator*(float b)
  */
 Matrix Matrix::operator/(float b)
 {
+    if (!b)
+        throw std::invalid_argument("Divide by 0 error.");
+
     Matrix res = *this;
     for (int i = 0; i < __rows; i++)
         for (int j = 0; j < __cols; j++)

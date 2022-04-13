@@ -248,13 +248,16 @@ bool scalarOp()
         break;
 
     case 4:
-        if (!scalar)
+        try
         {
-            cout << "Can't divide by 0\n";
+            temp = M / scalar;
+        }
+        catch (std::invalid_argument e)
+        {
+            cout << "\nError: " << e.what() << "\n";
             system("pause");
             return 1;
         }
-        temp = M / scalar;
 
         break;
 
